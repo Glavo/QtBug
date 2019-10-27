@@ -18,8 +18,10 @@ CLion 内的其他 build type (Release, RelWithDebInfo, MinSizeReld 等)
 CLion 选择的 cmake generator 为 `CodeLite - NMake Makefiles`， 
 使用命令行构建时选择的 generator 为 `Visual Studio 16 2019`。Release 与 Debug 
 构建分别将 `CMAKE_BUILD_TYPE` 设置为了 `Release` 与 `Debug`。
-因为我这里在命令行内使用 `CodeLite - NMake Makefiles` generator，
-会原因不明的生成失败，所以没有相关的尝试。
+~~因为我这里在命令行内使用 `CodeLite - NMake Makefiles` generator，
+会原因不明的生成失败，所以没有相关的尝试~~ 使用 `vcvarsall` 
+设置好相关变量后可以使用 `NMake Makefiles` 系列的生成器，确定了只有
+`NMake Makefiles`  Debug 构建正常。
  
 本项目是这个问题的最小化复现，可以尝试构建此项目，只有在 CLion 中 Debug 构建才会
 输出 `true`，其他情况下都会输出 `false`。
